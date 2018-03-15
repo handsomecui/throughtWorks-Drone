@@ -1,0 +1,30 @@
+package cn.hbc.work.impl;
+
+/**
+ * Created by cuijunyong on 2018/3/15.
+ */
+public class Pair<T, V> {
+  private T key;
+  private V value;
+
+  public T getKey() {
+    return key;
+  }
+
+  public void setKey(T key) {
+    this.key = key;
+  }
+
+  public V getValue() {
+    return value;
+  }
+
+  public void setValue(V value) {
+    this.value = value;
+  }
+
+  public Pair(T key, V value) {
+    this.key = key;
+    this.value = value;
+  }
+}
