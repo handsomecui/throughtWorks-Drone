@@ -8,6 +8,7 @@ public class Coordinate {
   private Integer y;
   private Integer z;
   private boolean isSuper = true;
+  private boolean isError = false;
 
   public Integer getX() {
     return x;
@@ -37,6 +38,19 @@ public class Coordinate {
     return isSuper;
   }
 
+
+  public boolean isError() {
+    return isError;
+  }
+
+  public void setIsError(boolean isError) {
+    this.isError = isError;
+  }
+
+  public Coordinate(boolean isError){
+    this.isError = isError;
+  }
+
   public Coordinate(Integer x, Integer y, Integer z, boolean... isSuper) {
     this.x = x;
     this.y = y;
@@ -45,6 +59,22 @@ public class Coordinate {
       this.isSuper = isSuper[0];
     }
 
+  }
+
+  //返回当前飞机的状态
+  public String display(String planeId, int i){
+    if(isError){
+      return "Error: " + i;
+    }else{
+      return planeId + " " + i + " " + x + " " + y + " " + z;
+    }
+  }
+
+  public boolean equals(Coordinate obj) {
+    if(x == obj.getX() && y == obj.getY() && z == obj.getZ()){
+      return true;
+    }
+    return false;
   }
 
   @Override

@@ -26,7 +26,9 @@ public class Arguments {
       String buf = "";
       while((buf = br.readLine()) != null){
         Pair<String, Coordinate> stringListPair = handleLine(buf);
-        pairs.add(stringListPair);
+        if(stringListPair != null){
+          pairs.add(stringListPair);
+        }
       }
     } catch (Exception e) {
       log.error("读取文件失败:" + e.toString());
@@ -40,13 +42,12 @@ public class Arguments {
       log.error("读取行为空！");
       return null;
     }
-
     String[] cols = line.split(" ");
     List<String> realCols = new ArrayList<>();
 
     if (cols.length < 2){
       log.error("列空格分割的长度为:" + cols.length + " 格式错误");
-      return null;
+      return new Pair<>(cols[0].trim(), null);
     }
 
     if(cols.length == 2){
@@ -70,7 +71,7 @@ public class Arguments {
 
     if(realCols.size() != 4 && realCols.size() != 7){
       log.error("读取行格式有误，行为：" + line);
-      return null;
+      return new Pair<>(cols[0].trim(), null);
     }
 
     String droneId;

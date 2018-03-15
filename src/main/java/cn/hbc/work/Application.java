@@ -1,6 +1,7 @@
 package cn.hbc.work;
 
 import cn.hbc.work.impl.Arguments;
+import cn.hbc.work.impl.Plane;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -20,7 +21,9 @@ public class Application {
 
     @Override
     public void run(String... strings) throws Exception {
-      Arguments.readInput();
+      Plane plane = new Plane();
+      plane.init();
+      plane.work();
     }
   }
 

@@ -17,5 +17,9 @@ public class OffSetCoordinate extends Coordinate{
     this.ofz = ofz;
   }
 
+  public Coordinate getRealCoor(){
+    return new Coordinate(getX()+ofx, getY()+ofy, getZ()+ofz);
+  }
+
 
 }
